@@ -1,78 +1,33 @@
-b
 <script setup>
+const { tm } = useI18n();
+const textValue = tm('aosc-os.relnote');
 </script>
 
 <template>
   <div>
-    <category-second title="发行注记：2024 年 9 月" />
+    <category-second :title="textValue.title1" />
     <div class="p-6">
+      <p>{{ textValue.p1 }}</p>
+      <p>{{ textValue.p1 }}</p>
       <p
-        >近日，我们发布了新一批安同 OS 系统发行，包含自 8
-        月初以来的各类系统组件更新及安全修复。本次的主要更新内容包括针对
-        Hyper-V、VMware 及 VirtualBox 等虚拟化平台、较新 x86
-        设备及龙架构平台的功能及支持优化，本发行注记将简略介绍相关变化。</p
-      ><br />
-      <p>本次发行亦带有大量针对安装体验的修复，本发行注记也将进行介绍。</p
-      ><br />
-      <p
-        ><b
-          >请注意：如果您已安装安同
-          OS，本发行注记提到的修复及变化均已通过系统更新推送，您无需重装系统或额外安装任何软件包。</b
-        ></p
-      ><br />
+        ><b>{{ textValue.b1 }}</b></p
+      >
     </div>
 
-    <category-second title="平台支持" id="platform-support" />
+    <category-second id="platform-support" :title="textValue.title2" />
     <div class="p-6">
-      <p>本次更新包含如下针对硬件平台支持的更新和修复：</p><br />
+      <p>{{ textValue.p3 }}</p>
       <div class="pt-2 pb-4 px-16">
-        <ul class="list-disc">
-          <li
-            >Linux 内核更新至 6.10.10，包含针对部分 AMD
-            显卡及虚拟化平台的支持修复</li
-          >
-          <li
-            >集成龙架构“旧世界”固件支持，现已支持在任意已知 3A5000 及 3A6000
-            系列平台上启动和安装安同 OS</li
-          >
-          <li
-            >修复了 Hyper-V 及 VMware/VirtualBox
-            部分配置下无法正常启动进入桌面的问题；其中，我们禁用了 Hyper-V
-            虚拟视频的帧缓冲驱动 (<code>hyperv_fb</code>) ，改用对其支持更完善的
-            DRM 驱动 (<code>hyperv_drm</code>)</li
-          >
-          <li
-            >修复了使用包含 NVIDIA 及非 NVIDIA GPU
-            的多显卡配置时，无法正常进入桌面的问题</li
-          >
-          <li
-            >修复了在部分较新 AMD 显卡及内置显卡的 AMD
-            处理器平台上，使用自带播放器及 Firefox 等应用程序无法正常播放 AV1
-            视频的问题</li
-          >
-          <li
-            >修复了部分 Intel Core Ultra（代号名 Meteor
-            Lake）平台笔记本电脑声卡无法使用的问题</li
-          >
-          <li
-            >修复了联想 ThinkBook 14 2024 酷睿版及锐龙版（又称 ThinkBook 14 G6+
-            IMH/AHP）睡眠偶发复位及 Fn + F5 组合键可能触发意外断电的问题</li
-          >
-          <li
-            >禁用了 ATI/AMD R600 至 TeraScale 3 系列 GPU 上的 VC-1
-            硬件解码支持（常用于 WMV
-            格式视频），该格式支持从未完善且可能导致系统崩溃</li
-          >
-        </ul>
+        <app-ul-ordinary :ul-value="textValue.ul1" my-key="aosc-os-relnote-1"/>
       </div>
     </div>
 
-    <category-second title="系统结构调整" id="architectural-changes" />
+    <category-second id="architectural-changes" :title="textValue.title3" />
     <div class="p-6">
       <p
         >根据用户反馈，我们对系统套件包 (<code>*-base</code>)
         的依赖结构进行了调整：</p
-      ><br />
+      >
       <div class="pt-2 pb-4 px-16">
         <ul class="list-disc">
           <li
@@ -87,10 +42,9 @@ b
       </div>
     </div>
 
-    <category-second title="关键组件更新" id="component-updates" />
+    <category-second id="component-updates" :title="textValue.titl4" />
     <div class="p-6">
-      <p>本次系统发行更新包含许多组件更新，其中较为关键的更新及修复有：</p
-      ><br />
+      <p>本次系统发行更新包含许多组件更新，其中较为关键的更新及修复有：</p>
       <div class="pt-2 pb-4 px-16">
         <ul class="list-disc">
           <li
@@ -144,11 +98,11 @@ b
       </div>
     </div>
 
-    <category-second title="功能修复" id="bugfixes" />
+    <category-second id="bugfixes" :title="textValue.title5" />
     <div class="p-6">
       <p
         >除功能更新带来的修复外，我们还针对用户反馈的问题对部分系统功能中存在的问题进行了修复：</p
-      ><br />
+      >
       <div class="pt-2 pb-4 px-16">
         <ul class="list-disc">
           <li>修复彩色 emoji 字形无法正确显示的问题</li>
@@ -164,9 +118,9 @@ b
       </div>
     </div>
 
-    <category-second title="安装体验" id="installation-media" />
+    <category-second id="installation-media" :title="textValue.title6" />
     <div class="p-6">
-      <p>本次发行更新包含的安装盘亦包含许多修复与改进，具体有：</p><br />
+      <p>本次发行更新包含的安装盘亦包含许多修复与改进，具体有：</p>
       <div class="pt-2 pb-4 px-16">
         <ul class="list-disc">
           <li

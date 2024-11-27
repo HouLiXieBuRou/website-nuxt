@@ -1,6 +1,4 @@
 <script setup>
-import ShowLoading from '~/components/ShowLoading.vue';
-
 /**
  * 版本及架构说明
  * 有两个子发行版，安同 OS 和星霞 OS

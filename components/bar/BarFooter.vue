@@ -1,20 +1,17 @@
-<script setup name="Footer">
-// const nowYear = new Date().getFullYear();
+<script setup>
+const nowYear = new Date().getFullYear();
 
-const navigationList = [
-  {
-    title: '网页源码',
-    url: 'https://github.com/AOSC-Dev/website-2023'
-  },
-  {
-    title: '报告内容问题',
-    url: 'https://github.com/AOSC-Dev/website-2023/issues'
-  },
-  {
-    title: '返回主页',
-    path: '/'
-  }
+const { tm } = useI18n();
+const textValue = tm('BarFooter');
+const navigationBorderlessList = [
+  { url: 'https://github.com/AOSC-Dev/website-2023' },
+  { url: 'https://github.com/AOSC-Dev/website-2023/issues' },
+  { path: '/' }
 ];
+const navigationList = mergedObjectArrays(
+  textValue.navigationTextList,
+  navigationBorderlessList
+);
 </script>
 
 <template>
@@ -22,7 +19,8 @@ const navigationList = [
     class="theme-bg-color-secondary-static text-white py-[2px] flex justify-center w-[100vw] footerbar">
     <div class="m-auto">
       <span class="pl-[0.5rem]"
-        >&copy; 安同开源社区&nbsp;&nbsp;&nbsp;&nbsp;2011 - {{ 1 }}</span
+        >&copy; {{ textValue.antong }}&nbsp;&nbsp;&nbsp;&nbsp;2011 -
+        {{ nowYear }}</span
       >
       <span class="mx-[20px]">|</span>
       <AccordionNavigation

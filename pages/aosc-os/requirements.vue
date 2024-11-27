@@ -20,8 +20,6 @@ onMounted(() => {
       break;
   }
 });
-const nuxtApp = useNuxtApp();
-const { data: time } = await useLazyFetch('http://localhost:3002/return1');
 const aoscOsRequirementsList = ref();
 </script>
 

@@ -6,32 +6,33 @@ const failReason = ref('');
 
 const themeStore = useThemeStore();
 
-function isImg(name) {
+const isImg = (name) => {
   const suffixIndex = name.lastIndexOf('.');
   const suffix = name.substring(suffixIndex + 1);
   return imgSuffixList.find((v) => v == suffix) !== undefined;
-}
+};
 
-function getAttachUrl(name) {
+const getAttachUrl = (name) => {
   return `/pasteContent/${route.query.id}/files/${name}`;
-}
+};
 
-const { data: results, status } = await useFetch('http://localhost:3001/pasteApi/paste', {
-  query: { id: route.query.id }
-});
-switch (status.value) {
-  case 'success':
+const isReady = ref(false);
+if (import.meta.client) {
+  const [res, err] = await requestGetJson('/pasteApi/paste', {
+    id: route.query.id
+  });
+
+  if (res) {
     if (results.value.code != 0) {
       failReason.value = results.value.message;
     } else {
+      //此处是正常返回值
       details.value = results.value.data;
     }
-    break;
-  case 'error':
+  } else {
     failReason.value = '获取粘贴板异常（服务器内部错误）';
-    break;
-  default:
-    break;
+  }
+  isReady.value = true;
 }
 
 const back = () => {
@@ -41,7 +42,7 @@ const returnHref = () => window.location.href;
 </script>
 
 <template>
-  <div v-loading="!status==='success'" class="w-[100%]" >
+  <ShowLoading :is-ready="isReady" class="w-[100%]">
     <div v-if="details != null">
       <category-second title="公共粘贴板" />
       <div class="p-[2em]">
@@ -99,7 +100,7 @@ const returnHref = () => window.location.href;
         >
       </template>
     </el-result>
-  </div>
+  </ShowLoading>
 </template>
 
 <style scoped></style>

@@ -133,15 +133,15 @@ export const onImgLoad = (observers, imgHeight) => {
   imgHeight.value = 'auto';
 };
 
-export const copyToClipboard=(text)=>{
+export const copyToClipboard = (text) => {
   navigator.clipboard
-  .writeText(text)
-  .then(() => {
-    ElMessage.success('复制成功');
-  })
-  .catch((err) => {
-    ElMessage.success(`复制失败:${err}`);
-  });
+    .writeText(text)
+    .then(() => {
+      ElMessage.success('复制成功');
+    })
+    .catch((err) => {
+      ElMessage.success(`复制失败:${err}`);
+    });
 }
 
 export const useSeizeSeat = (refName, proportion, imgHeights, fixedHeight) => {
@@ -171,3 +171,11 @@ export const useSeizeSeat = (refName, proportion, imgHeights, fixedHeight) => {
   });
   return [observer, imgHeights];
 };
+
+
+export const mergedObjectArrays = (array1,array2)=>{
+  return array1.map((item, index) => {
+    return { ...item, ...array2[index] };
+  })
+};
+

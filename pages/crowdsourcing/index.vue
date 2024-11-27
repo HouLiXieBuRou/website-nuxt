@@ -5,8 +5,8 @@ const s=1
     <category-second title="社区众筹" />
     <div class="p-6">
       <p
-        >根据社区<router-link to="/guidelines" class="text-link"
-          >《人际关系准则》</router-link
+        >根据社区<NuxtLinkLocale to="/guidelines" class="text-link"
+          >《人际关系准则》</NuxtLinkLocale
         >的要求，社区不接受作为社区及项目运转资金之用的捐款。但由于我社作为无运作资本的志愿者社区，在社区日常运营及为具体项目购置大宗物件（如构建用服务器和
         AOSCC
         年度聚会等场合）时经常需要资金及物质支持。因此，我们接受针对特定项目及购买计划的金钱、物品（如电脑机箱、电源及硬盘等）及服务（如网站服务器资源等）捐赠。</p

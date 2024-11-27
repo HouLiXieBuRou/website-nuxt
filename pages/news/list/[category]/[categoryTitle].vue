@@ -11,7 +11,7 @@ const { data: categories } = useFetch(
     <category-second
       :title="route.params.categoryTitle"
       class="border-r-solid border-r-white" />
-    <news-category-list :news-list="categories || []" />
+    <news-category-list :news-list="categories || []"/>
   </div>
 </template>
 

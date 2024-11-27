@@ -62,12 +62,12 @@
         <b>
           我们不会也无权约束或限制社区成员在社区（包含所有安同开源社区 Telegram
           频道/群组（及相应的 Discord 及 IRC 频道/群组）、
-          <a href="/" class="text-link">AOSC 维基</a>、
+          <a href="/zh-cn" class="text-link">AOSC 维基</a>、
           <a href="https://github.com/AOSC-Dev/" class="text-link"
             >GitHub 组织</a
           >
           和
-          <router-link to="/" class="text-link">社区门户</router-link>
+          <NuxtLinkLocale to="/zh-cn" class="text-link">社区门户</NuxtLinkLocale>
           ）外的任何行为。
         </b> </p
       ><br />
@@ -91,12 +91,12 @@
       <app-h2>适用于全社区</app-h2>
       <p class="pb-2">
         下面的规定适用于所有安同开源社区 Telegram 频道/群组（及相应的 Discord 及
-        IRC 频道/群组）、<a href="/" class="text-link">AOSC 维基</a>、<a
+        IRC 频道/群组）、<a href="/zh-cn" class="text-link">AOSC 维基</a>、<a
           href="https://github.com/AOSC-Dev/"
           class="text-link"
           >GitHub 组织</a
         >
-        和<router-link to="/" class="text-link">社区门户</router-link>。
+        和<NuxtLinkLocale to="/zh-cn" class="text-link">社区门户</NuxtLinkLocale>。
       </p>
 
       <app-h2>硬性规定</app-h2>
@@ -255,7 +255,7 @@
       <p>
         我们的社区是在我们独有的社群意识基础之上建立的，通过成员对计算机技术的兴趣得以成形，并根据成员的意愿进行维护和管理。尽管
         <a
-          href="https://www.contributor-covenant.org/zh-cn/version/1/4/code-of-conduct/"
+          href="https://www.contributor-covenant.org/version/1/4/code-of-conduct/"
           class="text-link"
           >《贡献者公约》</a
         >

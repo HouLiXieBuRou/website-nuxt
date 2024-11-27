@@ -1,9 +1,9 @@
-<script setup name="BarRight">
-const distroList = [
+<script setup>
+const { tm } = useI18n();
+const textValue = tm('BarRight');
+const distroBorderlessList = [
   {
     img: '/distros/aosc-os.svg',
-    title: '安同 OS',
-    description: '可靠、简明、精制',
     downloadPath: '/download',
     downloadHash: '#aosc-os-download',
     relnotePath: '/aosc-os/relnote',
@@ -11,54 +11,48 @@ const distroList = [
   },
   {
     img: '/distros/afterglow.svg',
-    title: '星霞 OS',
-    description: '承前启后',
     downloadPath: '/download',
     downloadHash: '#afterglow-download',
     relnotePath: '/afterglow/relnote',
     relnoteHash: ''
   }
 ];
-const commonLinkList = [
-  {
-    url: '/contact#main',
-    title: '报告系统使用问题'
-  },
-  {
-    url: 'https://github.com/AOSC-Dev/aosc-os-abbs/issues/new?assignees=&labels=security&projects=&template=security-vulnerabilities-report.yml',
-    title: '报告安全漏洞'
-  },
-  {
-    url: 'https://wiki.aosc.io/zh/developer/infrastructure/knowledge-base/00002-how-to-mirror/',
-    title: '镜像源支持'
-  },
-  {
-    url: '/crowdsourcing',
-    title: '赞助硬件或服务'
-  }
+
+const distroList = mergedObjectArrays(
+  distroBorderlessList,
+  textValue.distroTextList
+);
+
+const commonLinkBorderlessList = [
+  '/contact#main',
+  'https://github.com/AOSC-Dev/aosc-os-abbs/issues/new?assignees=&labels=security&projects=&template=security-vulnerabilities-report.yml',
+  'https://wiki.aosc.io/zh/developer/infrastructure/knowledge-base/00002-how-to-mirror/',
+  '/crowdsourcing'
 ];
 </script>
 
 <template>
   <div class="bg-right-bar-bg w-[37.5%] flex flex-col">
-    <a href="/aosc-os/right-for-me">
-      <img src="/jumbotron/minor1.svg" class="w-full imgScale1 cursor-pointer" />
-    </a>
-    <a href="https://bbs.aosc.io/">
+    <AppLink href="/aosc-os/right-for-me">
+      <img
+        src="/jumbotron/minor1.svg"
+        class="w-full imgScale1 cursor-pointer" />
+    </AppLink>
+    <AppLink href="https://bbs.aosc.io/">
       <img
         src="/jumbotron/minor2.svg"
         class="w-full imgScale1 cursor-pointer" />
-    </a>
+    </AppLink>
     <div class="flex flex-col grow">
       <CategorySecond
-        title="系统方案"
+        :title="textValue.title1"
         class="border-l border-solid border-content-main-bg" />
       <article
         class="pt-[1em] pb-[0.5em] pl-[1em] border-l theme-border-secondary">
         <div
-          class="flex items-center pb-[15px]"
           v-for="item in distroList"
-          :key="item.title">
+          :key="item.title"
+          class="flex items-center pb-[15px]">
           <div class="basis-[50px] mr-[20px] ml-[0.5em]">
             <img :src="item.img" alt="" class="w-full" />
           </div>
@@ -76,25 +70,25 @@ const commonLinkList = [
                   hash: item.downloadHash
                 }"
                 class="text-link mr-2"
-                >系统下载</AppLink
+                >{{ textValue.link1 }}</AppLink
               >
               <AppLink
                 :to="{
                   path: item.relnotePath,
                   hash: item.relnoteHash
                 }"
-                >发行注记</AppLink
+                >{{ textValue.link2 }}</AppLink
               >
             </div>
           </div>
         </div>
       </article>
-      <CategorySecond title="常用链接" />
+      <CategorySecond :title="textValue.title2" />
       <div class="border-l theme-border-secondary flex flex-col flex-grow">
         <a
-          v-for="item in commonLinkList"
+          v-for="(item, index) in textValue.commonLinkList"
           :key="item.title"
-          :href="item.url"
+          :href="commonLinkBorderlessList[index]"
           class="hover:bg-leftbar-bg cursor-pointer flex flex-row justify-between items-center px-[1rem] h-[2rem] odd:bg-[#fefaf6] bg-white">
           <span>{{ item.title }}</span>
           <!-- <v-icon name="hi-solid-external-link" /> -->

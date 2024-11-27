@@ -88,7 +88,7 @@ important: false
 
 ### 应用上新：libLoL 应用兼容性数据库发布更新
 
-![libLoL 主页监测来自龙芯应用合作社和其他来源应用的兼容性](/assets/liblol/liblol.svg)
+![libLoL 主页监测来自龙芯应用合作社和其他来源应用的兼容性](/zh-cn/assets/liblol/liblol.svg)
 
 日前，[温柔](https://github.com/xunpod)刷新了用于龙架构系统的 [libLoL 应用兼容性数据库](https://liblol.aosc.io/docs/apps/)，包含 18 款来自龙芯应用合作社和 3 款来自其他来源的 3 款应用程序。在更新应用程序信息的同时，温柔还对许多应用进行了兼容性测试并更新了测试报告，希望能帮到各位龙架构系统用户。
 
@@ -130,7 +130,7 @@ important: false
 
 <!-- 公众号等平台请注意内联 -->
 
-有关该问题的详细调查报告，详请见[《请您测试：龙架构 AMD 显卡稳定性修复》](./2024-06-17-fix-amd-gpu-reset-pre.zh-cn.md)一文。
+有关该问题的详细调查报告，详请见[《请您测试：龙架构 AMD 显卡稳定性修复》](./2024-06-17-fix-amd-gpu-reset-pre.md)一文。
 
 开发者角
 --------
